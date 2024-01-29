@@ -1,15 +1,45 @@
 .row {
     display: flex;
+    padding-top: 20px;
+    padding-right: 20px;
+    padding-bottom: 20px;
+    padding-left: 20px;
 }
 
 .Col1{
     flex: 1;
+    padding-top: 20px;
+    padding-right: 20px;
+    padding-bottom: 20px;
+    padding-left: 20px;
 }
 
 .Col2{
     flex: 2;
+    padding-top: 20px;
+    padding-right: 20px;
+    padding-bottom: 20px;
+    padding-left: 20px;
 }
 
 .Col3{
     flex: 1;
+    padding-top: 20px;
+    padding-right: 20px;
+    padding-bottom: 20px;
+    padding-left: 20px;
+}
+
+.stacked-fraction {
+    display: inline-block;
+    width: 10;
+    height: 10;
+}
+.numerator {
+    text-align: center;
+    border-bottom: 1px solid black; 
+}
+ 
+.denominator {
+    text-align: center;
 }

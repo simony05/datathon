@@ -9,25 +9,35 @@ Chart.register(...registerables);
 
 const MyBarGraph = () => {
   const [sliderValue, setSliderValue] = useState(10.0);
-  const [sliderValue1, setSliderValue1] = useState(10.0);
-  const [sliderValue2, setSliderValue2] = useState(10.0);
-  const [sliderValue3, setSliderValue3] = useState(10.0);
+  const [sliderValue1, setSliderValue1] = useState(1.0);
+  const [sliderValue2, setSliderValue2] = useState(0.5);
+  const [sliderValue3, setSliderValue3] = useState(1.0);
   const minslider = 0;
 
+  function calcQuality(alcohol, sulfate, citric_acid, volatile_acidity) {
+    let quality = Math.round(0.306035 * alcohol + 0.699891 * sulfate - 0.0782779 * citric_acid - 1.27901 * volatile_acidity + 2.6814)
+    return quality < 0 ? 0 : quality;
+  }
+
   const data = {
-    labels: ['Label 1', 'Label 2', 'Label 3', 'Label 4'],
+    labels: ['Alcohol', 'Sulphate', 'Citric Acid', 'Volatile'],
     datasets: [
       {
         label: 'My Dataset',
         data: [sliderValue, sliderValue1, sliderValue2, sliderValue3],
-        backgroundColor: 'rgba(75, 192, 192, 0.2)',
-        borderColor: 'rgba(75, 192, 192, 1)',
+        backgroundColor: 'rgba(123, 0, 0, 0.5)',
+        borderColor: 'rgba(123, 0, 0, 0.5)',
         borderWidth: 1,
       },
     ],
   };
 
   const options = {
+    plugins: {
+      legend: {
+        display: false,
+      },           
+    },
     indexAxis: 'y',
     responsive: true,
     elements: {
@@ -66,6 +76,8 @@ const MyBarGraph = () => {
     <div>
       <div class="row">
         <div class="Col1">
+            <h1>Wine Variables: </h1>
+              <br />
             <Box sx={{ width: 300 }}>
               <Slider value={sliderValue} onChange={handleSliderChange} 
               width={300}
@@ -76,40 +88,40 @@ const MyBarGraph = () => {
               min={minslider}
               max={20.0}
               step={0.1}/>
-              <div>Value: {sliderValue}</div>
+              <div>Percent Alcohol Content: {sliderValue}</div>
 
               <Slider value={sliderValue1} onChange={handleSliderChange1} 
               width={300}
-              defaultValue={10.0}
+              defaultValue={1.0}
               size="small"
               aria-label="Small"
               valueLabelDisplay="auto"
               min={minslider}
-              max={20.0}
+              max={2.0}
               step={0.1}/>
-              <div>Value: {sliderValue1}</div>
+              <div>Sulphate Content: {sliderValue1}</div>
 
               <Slider value={sliderValue2} onChange={handleSliderChange2} 
               width={300}
-              defaultValue={10.0}
+              defaultValue={1.0}
               size="small"
               aria-label="Small"
               valueLabelDisplay="auto"
               min={minslider}
-              max={20.0}
+              max={1.0}
               step={0.1}/>
-              <div>Value: {sliderValue2}</div>
+              <div>Citric Acid Content: {sliderValue2}</div>
 
               <Slider value={sliderValue3} onChange={handleSliderChange3} 
               width={300}
-              defaultValue={10.0}
+              defaultValue={1.0}
               size="small"
               aria-label="Small"
               valueLabelDisplay="auto"
               min={minslider}
-              max={20.0}
+              max={2.0}
               step={0.1}/>
-              <div>Value: {sliderValue3}</div>
+              <div>Volatile Acidity: {sliderValue3}</div>
             </Box>
             </div>
             <div class = "Col2">
@@ -118,7 +130,16 @@ const MyBarGraph = () => {
             <div class = "Col3">
               <h1>Wine Quality: </h1>
               <br />
-              <div>0</div>
+              <div>
+                <span class="stacked-fraction">
+                  <div class="numerator">
+                    <h1>{calcQuality(sliderValue, sliderValue1, sliderValue2, sliderValue3)}</h1>
+                  </div>
+                  <div class="denominator">
+                    <h1>10</h1>
+                  </div>
+                </span>
+              </div>
             </div>
       </div>
     </div>
