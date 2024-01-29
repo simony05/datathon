@@ -1,39 +1,41 @@
-// Import the React library.
-import React from "react";
+import React, { useState } from 'react';
+import Slider from '@mui/material/Slider';
+import { Bar } from 'react-chartjs-2';
 
-// Import the Chart.js library.
-import Chart from "chart.js/auto";
+const MyBarGraph = () => {
+  const [sliderValue, setSliderValue] = useState(50);
 
-// Import the Bar component from the react-chartjs-2 library.
-import { Bar } from "react-chartjs-2";
-
-/**
- * Define a functional component named BarChart
- */
-const BarChart = () => {
-  // Define an array of labels.
-  const labels = ["January", "February", "March", "April", "May", "June"];
-
-  // Defined an object 
   const data = {
-    labels: labels,
+    labels: ['Label 1', 'Label 2', 'Label 3'],
     datasets: [
       {
-        label: "My First dataset",
-        backgroundColor: "rgb(255, 99, 132)",
-        borderColor: "rgb(255, 99, 132)",
-        data: [0, 10, 5, 2, 20, 30, 45],
+        label: 'My Dataset',
+        data: [sliderValue, sliderValue * 2, sliderValue * 3],
+        backgroundColor: 'rgba(75, 192, 192, 0.2)',
+        borderColor: 'rgba(75, 192, 192, 1)',
+        borderWidth: 1,
       },
     ],
   };
 
-  // Return the Bar component, passing in the data object as a prop.
+  const options = {
+    scales: {
+      y: {
+        beginAtZero: true,
+      },
+    },
+  };
+
+  const handleSliderChange = (event, newValue) => {
+    setSliderValue(newValue);
+  };
+
   return (
     <div>
-      <Bar data={data} />
+      <Slider value={sliderValue} onChange={handleSliderChange} />
+      <Bar data={data} options={options} />
     </div>
   );
 };
 
-// Export the BarChart component as the default export of the module.
-export default BarChart;
+export default MyBarGraph;
