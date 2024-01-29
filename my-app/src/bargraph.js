@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Slider from '@mui/material/Slider';
 import { Bar } from 'react-chartjs-2';
 import { Chart, registerables} from 'chart.js';
+import Box from '@mui/material/Box';
 
 Chart.register(...registerables);
 
@@ -35,16 +36,18 @@ const MyBarGraph = () => {
 
   return (
     <div>
-      <Slider value={sliderValue} onChange={handleSliderChange} 
-      width={300}
-      defaultValue={10.0}
-      size="small"
-      aria-label="Small"
-      valueLabelDisplay="auto"
-      min={1.0}
-      max={20.0}
-      step={0.1}/>
-      <div>Value: {sliderValue}</div>
+      <Box sx={{ width: 300 }}>
+        <Slider value={sliderValue} onChange={handleSliderChange} 
+        width={300}
+        defaultValue={10.0}
+        size="small"
+        aria-label="Small"
+        valueLabelDisplay="auto"
+        min={1.0}
+        max={20.0}
+        step={0.1}/>
+        <div>Value: {sliderValue}</div>
+      </Box>
       <Bar data={data} options={options} />
       
     </div>
