@@ -26,6 +26,7 @@ const MyBarGraph = () => {
   };
 
   const options = {
+    indexAxis: 'y',
     scales: {
       y: {
         beginAtZero: true,
