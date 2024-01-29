@@ -6,7 +6,7 @@ import Box from '@mui/material/Box';
 import './bargraph.css';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { pink } from '@mui/material/colors';
-import Tex2SVG from "react-hook-mathjax";
+import { MathComponent } from "mathjax-react";
 
 Chart.register(...registerables);
 
@@ -160,7 +160,8 @@ const MyBarGraph = () => {
       </div>
       <div className="row">
         <div className='Col1'>
-          <h1>Alcohol</h1>
+          <h1>% Alcohol Content</h1>
+          <MathComponent tex={String.raw`Alc.\%=\frac{(InitialSG - FinalSG) * 131.25}{7.362}`} />
           <div className="item">Specific gravity is a measure of the density of a substance compared to the density of water.
 Initial Specific Gravity: Before fermentation begins, measure the specific gravity of the wine using a hydrometer. Float the hydrometer in a sample of the wine in a graduated cylinder or sample jar. 
 Allow the wine to ferment. During fermentation, the yeast will convert sugars into alcohol and carbon dioxide. The specific gravity will decrease as the sugar is consumed.
@@ -171,7 +172,6 @@ Tips: Adding sugar to a liquid will increase its specific gravity, while dilutin
         <div className='Col1'>
           <h1>Sulphate</h1>
           <div className="item">
-            <Tex2SVG display="inline" latex="Alcohol=(((InitialSG - FinalSG) x 131.25) / 7.362" />
           </div>
           <div className="item">These compounds release sulfur dioxide when added to wine, helping to protect it from spoilage, oxidation, and unwanted microbial activity. Based on the difference between the current sulfite level and the desired level, calculate the amount of potassium metabisulfite needed for adjustment. The calculation will depend on the volume of wine and the desired increase in SO2. Measure the appropriate amount of powder and dissolve in warm water to create a sulphate solution before slowly adding it to the red wine. Ensure even distribution. Wait for some time to allow the sulfate to fully integrate into the wine before retesting to ensure that it meets the desired target.</div>
         </div>
