@@ -88,7 +88,7 @@ const MyBarGraph = () => {
               min={minslider}
               max={20.0}
               step={0.1}/>
-              <div>Percent Alcohol Content: {sliderValue}</div>
+              <div>Percent Alcohol Content: {sliderValue}%</div>
 
               <Slider value={sliderValue1} onChange={handleSliderChange1} 
               width={300}
@@ -99,7 +99,7 @@ const MyBarGraph = () => {
               min={minslider}
               max={2.0}
               step={0.1}/>
-              <div>Sulphate Content: {sliderValue1}</div>
+              <div>Sulphate Content: {sliderValue1} g/liter</div>
 
               <Slider value={sliderValue2} onChange={handleSliderChange2} 
               width={300}
@@ -110,7 +110,7 @@ const MyBarGraph = () => {
               min={minslider}
               max={1.0}
               step={0.1}/>
-              <div>Citric Acid Content: {sliderValue2}</div>
+              <div>Citric Acid Content: {sliderValue2} g/liter</div>
 
               <Slider value={sliderValue3} onChange={handleSliderChange3} 
               width={300}
@@ -121,7 +121,7 @@ const MyBarGraph = () => {
               min={minslider}
               max={2.0}
               step={0.1}/>
-              <div>Volatile Acidity: {sliderValue3}</div>
+              <div>Volatile Acidity: {sliderValue3} g/liter</div>
             </Box>
             </div>
             <div class = "Col2">
