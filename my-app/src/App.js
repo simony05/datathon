@@ -25,9 +25,12 @@ function App() {
       <Box sx={{ width: 300 }}>
         <Slider
           size="small"
-          defaultValue={70}
+          defaultValue={4.6}
           aria-label="Small"
           valueLabelDisplay="auto"
+          min={4.6}
+          max={15.9}
+          step={0.1}
         />
         <Slider defaultValue={50} aria-label="Default" valueLabelDisplay="auto" />
       </Box>
