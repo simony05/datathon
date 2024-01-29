@@ -29,6 +29,7 @@ const MyBarGraph = () => {
     scales: {
       y: {
         beginAtZero: true,
+        max: 20.0,
       },
     },
   };
