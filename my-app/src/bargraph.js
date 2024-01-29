@@ -3,9 +3,7 @@ import Slider from '@mui/material/Slider';
 import { Bar } from 'react-chartjs-2';
 import { Chart, registerables} from 'chart.js';
 import Box from '@mui/material/Box';
-import { styled } from '@mui/material/styles';
-import Grid from '@mui/material/Grid';
-import Paper from '@mui/material/Paper';
+import './bargraph.css';
 
 Chart.register(...registerables);
 
@@ -66,9 +64,8 @@ const MyBarGraph = () => {
 
   return (
     <div>
-      <Box sx={{ width: '100%' }}>
-        <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
-          <Grid item xs={6}>
+      <div class="row">
+        <div class="Col1">
             <Box sx={{ width: 300 }}>
               <Slider value={sliderValue} onChange={handleSliderChange} 
               width={300}
@@ -114,12 +111,16 @@ const MyBarGraph = () => {
               step={0.1}/>
               <div>Value: {sliderValue3}</div>
             </Box>
-          </Grid>
-          <Grid item xs={6}>
-            <Bar data={data} options={options} />
-          </Grid>
-        </Grid>
-      </Box>
+            </div>
+            <div class = "Col2">
+              <Bar data={data} options={options} />
+            </div>
+            <div class = "Col3">
+              <h1>Wine Quality: </h1>
+              <br />
+              <div>0</div>
+            </div>
+      </div>
     </div>
   );
 };
