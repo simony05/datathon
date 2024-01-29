@@ -11,6 +11,7 @@ const MyBarGraph = () => {
   const [sliderValue1, setSliderValue1] = useState(10.0);
   const [sliderValue2, setSliderValue2] = useState(10.0);
   const [sliderValue3, setSliderValue3] = useState(10.0);
+  const minslider = 0;
 
   const data = {
     labels: ['Label 1', 'Label 2', 'Label 3', 'Label 4'],
@@ -28,8 +29,14 @@ const MyBarGraph = () => {
   const options = {
     indexAxis: 'y',
     scales: {
+      x:{
+        beginAtZero: true,
+        min: 0.0,
+        max: 20.0,
+      },
       y: {
         beginAtZero: true,
+        min: 0.0,
         max: 20.0,
       },
     },
@@ -57,7 +64,7 @@ const MyBarGraph = () => {
         size="small"
         aria-label="Small"
         valueLabelDisplay="auto"
-        min={1.0}
+        min={minslider}
         max={20.0}
         step={0.1}/>
         <div>Value: {sliderValue}</div>
@@ -68,7 +75,7 @@ const MyBarGraph = () => {
         size="small"
         aria-label="Small"
         valueLabelDisplay="auto"
-        min={1.0}
+        min={minslider}
         max={20.0}
         step={0.1}/>
         <div>Value: {sliderValue1}</div>
@@ -79,7 +86,7 @@ const MyBarGraph = () => {
         size="small"
         aria-label="Small"
         valueLabelDisplay="auto"
-        min={1.0}
+        min={minslider}
         max={20.0}
         step={0.1}/>
         <div>Value: {sliderValue2}</div>
@@ -90,7 +97,7 @@ const MyBarGraph = () => {
         size="small"
         aria-label="Small"
         valueLabelDisplay="auto"
-        min={1.0}
+        min={minslider}
         max={20.0}
         step={0.1}/>
         <div>Value: {sliderValue3}</div>
