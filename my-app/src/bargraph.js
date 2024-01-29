@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
 import Slider from '@mui/material/Slider';
 import { Bar } from 'react-chartjs-2';
+import { Chart, registerables} from 'chart.js';
+
+Chart.register(...registerables);
 
 const MyBarGraph = () => {
   const [sliderValue, setSliderValue] = useState(50);
