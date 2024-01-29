@@ -4,11 +4,13 @@ import { Bar } from 'react-chartjs-2';
 import { Chart, registerables} from 'chart.js';
 import Box from '@mui/material/Box';
 import './bargraph.css';
+import { createTheme, ThemeProvider } from '@mui/material/styles';
+import { pink } from '@mui/material/colors';
 
 Chart.register(...registerables);
 
 const MyBarGraph = () => {
-  const [sliderValue, setSliderValue] = useState(10.0);
+  const [sliderValue, setSliderValue] = useState(7.5);
   const [sliderValue1, setSliderValue1] = useState(1.0);
   const [sliderValue2, setSliderValue2] = useState(0.5);
   const [sliderValue3, setSliderValue3] = useState(1.0);
@@ -19,14 +21,20 @@ const MyBarGraph = () => {
     return quality < 0 ? 0 : quality;
   }
 
+  const theme = createTheme({
+    palette: {
+      primary: pink
+    },
+  });
+
   const data = {
-    labels: ['Alcohol', 'Sulphate', 'Citric Acid', 'Volatile'],
+    labels: ['Alcohol (vol.%)', 'Sulphate (g/L)', 'Citric Acid (g/L)', 'VA (g/L)'],
     datasets: [
       {
-        label: 'My Dataset',
+        label: '',
         data: [sliderValue, sliderValue1, sliderValue2, sliderValue3],
-        backgroundColor: 'rgba(123, 0, 0, 0.5)',
-        borderColor: 'rgba(123, 0, 0, 0.5)',
+        backgroundColor: '#fadadd',
+        borderColor: '#fadadd',
         borderWidth: 1,
       },
     ],
@@ -49,12 +57,12 @@ const MyBarGraph = () => {
       x:{
         beginAtZero: true,
         min: 0.0,
-        max: 20.0,
+        max: 16.0,
       },
       y: {
         beginAtZero: true,
         min: 0.0,
-        max: 20.0,
+        max: 15.0,
       },
     },
   };
@@ -78,7 +86,9 @@ const MyBarGraph = () => {
         <div class="Col1">
             <h1>Wine Variables: </h1>
               <br />
+              <ThemeProvider theme={theme}>
             <Box sx={{ width: 300 }}>
+              <div>Percent Alcohol Content: {sliderValue}%</div>
               <Slider value={sliderValue} onChange={handleSliderChange} 
               width={300}
               defaultValue={10.0}
@@ -86,10 +96,13 @@ const MyBarGraph = () => {
               aria-label="Small"
               valueLabelDisplay="auto"
               min={minslider}
-              max={20.0}
-              step={0.1}/>
-              <div>Percent Alcohol Content: {sliderValue}%</div>
-
+              max={16.0}
+              step={0.1}
+              color='primary'
+              />
+              
+<br />
+              <div>Sulphate Content: {sliderValue1} g/liter</div>
               <Slider value={sliderValue1} onChange={handleSliderChange1} 
               width={300}
               defaultValue={1.0}
@@ -99,8 +112,8 @@ const MyBarGraph = () => {
               min={minslider}
               max={2.0}
               step={0.1}/>
-              <div>Sulphate Content: {sliderValue1} g/liter</div>
 
+              <div>Citric Acid Content: {sliderValue2} g/liter</div>
               <Slider value={sliderValue2} onChange={handleSliderChange2} 
               width={300}
               defaultValue={1.0}
@@ -110,8 +123,9 @@ const MyBarGraph = () => {
               min={minslider}
               max={1.0}
               step={0.1}/>
-              <div>Citric Acid Content: {sliderValue2} g/liter</div>
+              
 
+              <div>Volatile Acidity: {sliderValue3} g/liter</div>
               <Slider value={sliderValue3} onChange={handleSliderChange3} 
               width={300}
               defaultValue={1.0}
@@ -121,8 +135,9 @@ const MyBarGraph = () => {
               min={minslider}
               max={2.0}
               step={0.1}/>
-              <div>Volatile Acidity: {sliderValue3} g/liter</div>
+              
             </Box>
+            </ThemeProvider>
             </div>
             <div class = "Col2">
               <Bar data={data} options={options} />

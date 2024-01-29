@@ -1,6 +1,29 @@
 header {
-        background: maroon;
+        background-image: url("./wine.jpg");
+        
         margin: auto -16px;
         padding: 16px 32px;
         box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.3);
+        align-items: center;
+}
+.box {
+        background-color: white;
+        padding: 20px;
+        text-align: center;
+        display: inline-block;
+        border: 5px solid #8e5b68;
+}
+.container {
+        display: grid;
+        align-items: center; 
+        grid-template-columns: 1fr 1fr 1fr;
+        column-gap: 5px;
+}
+       
+img {
+        max-width: 100%;
+        max-height:100%;
+}
+.text {
+        font-size: 70px;
 }

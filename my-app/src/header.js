@@ -4,7 +4,7 @@ import './header.css';
 function Header() {
   return (
     <header>
-      <h1>Red Wine</h1>
+          <h1 class='box'>Red Wine Quality Calculator</h1>
     </header>
   );
 }

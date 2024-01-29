@@ -66,3 +66,6 @@ body {
 .blurb {
   padding-top: 20px;
 }
+.bolded {
+  font-weight: bold;
+}
