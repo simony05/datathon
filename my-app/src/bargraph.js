@@ -3,6 +3,9 @@ import Slider from '@mui/material/Slider';
 import { Bar } from 'react-chartjs-2';
 import { Chart, registerables} from 'chart.js';
 import Box from '@mui/material/Box';
+import { styled } from '@mui/material/styles';
+import Grid from '@mui/material/Grid';
+import Paper from '@mui/material/Paper';
 
 Chart.register(...registerables);
 
@@ -28,6 +31,12 @@ const MyBarGraph = () => {
 
   const options = {
     indexAxis: 'y',
+    responsive: true,
+    elements: {
+      bar: {
+        borderWidth: 2,
+      },
+    },
     scales: {
       x:{
         beginAtZero: true,
@@ -57,54 +66,60 @@ const MyBarGraph = () => {
 
   return (
     <div>
-      <Box sx={{ width: 300 }}>
-        <Slider value={sliderValue} onChange={handleSliderChange} 
-        width={300}
-        defaultValue={10.0}
-        size="small"
-        aria-label="Small"
-        valueLabelDisplay="auto"
-        min={minslider}
-        max={20.0}
-        step={0.1}/>
-        <div>Value: {sliderValue}</div>
+      <Box sx={{ width: '100%' }}>
+        <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
+          <Grid item xs={6}>
+            <Box sx={{ width: 300 }}>
+              <Slider value={sliderValue} onChange={handleSliderChange} 
+              width={300}
+              defaultValue={10.0}
+              size="small"
+              aria-label="Small"
+              valueLabelDisplay="auto"
+              min={minslider}
+              max={20.0}
+              step={0.1}/>
+              <div>Value: {sliderValue}</div>
 
-        <Slider value={sliderValue1} onChange={handleSliderChange1} 
-        width={300}
-        defaultValue={10.0}
-        size="small"
-        aria-label="Small"
-        valueLabelDisplay="auto"
-        min={minslider}
-        max={20.0}
-        step={0.1}/>
-        <div>Value: {sliderValue1}</div>
+              <Slider value={sliderValue1} onChange={handleSliderChange1} 
+              width={300}
+              defaultValue={10.0}
+              size="small"
+              aria-label="Small"
+              valueLabelDisplay="auto"
+              min={minslider}
+              max={20.0}
+              step={0.1}/>
+              <div>Value: {sliderValue1}</div>
 
-        <Slider value={sliderValue2} onChange={handleSliderChange2} 
-        width={300}
-        defaultValue={10.0}
-        size="small"
-        aria-label="Small"
-        valueLabelDisplay="auto"
-        min={minslider}
-        max={20.0}
-        step={0.1}/>
-        <div>Value: {sliderValue2}</div>
+              <Slider value={sliderValue2} onChange={handleSliderChange2} 
+              width={300}
+              defaultValue={10.0}
+              size="small"
+              aria-label="Small"
+              valueLabelDisplay="auto"
+              min={minslider}
+              max={20.0}
+              step={0.1}/>
+              <div>Value: {sliderValue2}</div>
 
-        <Slider value={sliderValue3} onChange={handleSliderChange3} 
-        width={300}
-        defaultValue={10.0}
-        size="small"
-        aria-label="Small"
-        valueLabelDisplay="auto"
-        min={minslider}
-        max={20.0}
-        step={0.1}/>
-        <div>Value: {sliderValue3}</div>
-
+              <Slider value={sliderValue3} onChange={handleSliderChange3} 
+              width={300}
+              defaultValue={10.0}
+              size="small"
+              aria-label="Small"
+              valueLabelDisplay="auto"
+              min={minslider}
+              max={20.0}
+              step={0.1}/>
+              <div>Value: {sliderValue3}</div>
+            </Box>
+          </Grid>
+          <Grid item xs={6}>
+            <Bar data={data} options={options} />
+          </Grid>
+        </Grid>
       </Box>
-      <Bar data={data} options={options} />
-      
     </div>
   );
 };
