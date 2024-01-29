@@ -3,6 +3,7 @@ import MyBarGraph from "./bargraph.js";
 import * as React from 'react';
 import Header from "./header.js";
 import Tex2SVG from "react-hook-mathjax";
+import Footer from './footer.js';
 
 function App() {
   return (
@@ -54,6 +55,7 @@ Adding sugar to a liquid will increase its specific gravity, while diluting the 
           <div className="item">Ensure that all winemaking equipment, containers, and utensils are thoroughly cleaned and sanitized to prevent contamination. Proper hygiene practices can help reduce the risk of acetic acid bacteria and other spoilage microorganisms. Acetic acid bacteria thrive in the presence of oxygen. Minimize oxygen exposure and ensure that containers are properly sealed. If you suspect contamination, consider adding sulfites and resealing containers.</div>
         </div>
       </div>
+      <Footer/>
     </div>
   );
 }

@@ -1,0 +1,16 @@
+.footer-style {
+    /* display: flex; */
+    justify-content: center;
+    text-align: center;
+    background-color: #8e5b68;
+    padding: 20px;
+    margin-top: 40px;
+  }
+  
+  /* p {
+    color: black;
+  } */
+  a {
+    color: black;
+  }
+  

@@ -34,12 +34,18 @@
     display: inline-block;
     width: 10;
     height: 10;
+    padding-top: 1px;
+    padding-bottom: 1px;
 }
 .numerator {
     text-align: center;
-    border-bottom: 1px solid black; 
+    border-bottom: 4px solid black; 
+    padding-top: 1px;
+    padding-bottom: 1px;
 }
  
 .denominator {
     text-align: center;
+    padding-top: 1px;
+    padding-bottom: 1px;
 }

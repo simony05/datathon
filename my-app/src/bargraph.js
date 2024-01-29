@@ -84,7 +84,7 @@ const MyBarGraph = () => {
     <div>
       <div class="row">
         <div class="Col1">
-            <h1>Wine Variables: </h1>
+            <h1>Wine Variables</h1>
               <br />
               <ThemeProvider theme={theme}>
             <Box sx={{ width: 300 }}>
@@ -143,7 +143,7 @@ const MyBarGraph = () => {
               <Bar data={data} options={options} />
             </div>
             <div class = "Col3">
-              <h1>Wine Quality: </h1>
+              <h1>Wine Quality</h1>
               <br />
               <div>
                 <span class="stacked-fraction">
