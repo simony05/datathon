@@ -35,8 +35,18 @@ const MyBarGraph = () => {
 
   return (
     <div>
-      <Slider value={sliderValue} onChange={handleSliderChange} />
+      <Slider value={sliderValue} onChange={handleSliderChange} 
+      width={300}
+      defaultValue={10.0}
+      size="small"
+      aria-label="Small"
+      valueLabelDisplay="auto"
+      min={1.0}
+      max={20.0}
+      step={0.1}/>
+      <div>Value: {sliderValue}</div>
       <Bar data={data} options={options} />
+      
     </div>
   );
 };
