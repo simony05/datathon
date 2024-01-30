@@ -54,3 +54,8 @@
 .item{
     line-height: 25px;
 }
+br {
+    display: block; /* makes it have a width */
+    content: ""; /* clears default height */
+    margin-top: 15px; /* change this to whatever height you want it */
+}
