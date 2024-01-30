@@ -1,7 +1,7 @@
 Red Wine Quality Calculator
 
 How to test:
-1. Open code in a code editor.
+1. Open code in a code editor like VS Code
 2. cd my-app
 3. Install npm and dependencies
 4. Run npm start to open website in localhost
